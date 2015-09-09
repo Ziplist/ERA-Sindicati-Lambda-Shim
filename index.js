@@ -11,9 +11,11 @@ exports.handler = function(event, context) {
     var source_key = event.Records[0].s3.object.key;
     if (source_key.match(/^msn-publications\//)) {
         var destination_bucket = "icerss.condenast.com";
-        // FOR DEPLOY YOU NEED TO SET THIS TO BE WHAT IT SHOULD BE!
+        // TESTING
         var destination_path   = "test/" + source_key.split("/").reverse()[0];
-        
+        // PRODUCTION!
+        //var destination_path   = "rss/" + source_key.split("/").reverse()[0];
+
         var params = {
             Bucket: destination_bucket,
             Key: destination_path,
