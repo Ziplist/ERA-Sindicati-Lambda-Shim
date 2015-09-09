@@ -29,6 +29,7 @@ exports.handler = function(event, context) {
           }
        });
     } else {
+        console.log("Skipped this file. Not in the right path");
         context.succeed("Skipped the file");
     }
 };
