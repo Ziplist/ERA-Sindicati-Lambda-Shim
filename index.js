@@ -24,10 +24,6 @@ exports.handler = function(event, context) {
     s3.copyObject(params, function(err, data) {
       if (err) console.log(err, err.stack); // an error occurred
       else {
-            // s3.getObject({Bucket: destination_bucket, Key: destination_path}, function(err, data) {
-       //   if (err) console.log(err, err.stack); // an error occurred
-       //   else     console.log("Copied: " + JSON.stringify(data));           // successful response
-       // });
        context.succeed("Copied the file from " + source_bucket + "/" + source_key + " => " + destination_bucket + "/" + destination_path );     
       }
    });
