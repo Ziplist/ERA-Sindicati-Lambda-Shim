@@ -7,14 +7,16 @@ exports.handler = function(event, context) {
     console.log('Received event:', JSON.stringify(event, null, 2));
     try {
         var destination_bucket = "icerss.condenast.com";
-        var destination_path =  "test"; // "rss";
-        var mapping = {"architecturaldigest": "architectural-digest",
+        var destination_path =  "test"; // "test" OR "rss"
+        var mapping = { "architecturaldigest": "architectural-digest",
                         "arstechnica": "ars-technica",
                         "bonappetit": "bon-appetit",
                         "condenasttraveler": "conde-nast-traveler",
                         "vanityfair": "vanity-fair",
                         "golfdigest": "golf-digest",
-                        "teenvogue": "teen-vogue"};
+                        "teenvogue": "teen-vogue",
+                        "thenewyorker": "the-new-yorker"
+        };
        
         // Get the object from the event and show its content type
         var source_bucket = event.Records[0].s3.bucket.name;
